@@ -18,10 +18,10 @@ richiesta_attraversamentoE(Id, Priorita):>
 elabora_codaA:-
     write('Elaboro la coda...'), nl,
 
-    vettura_prenotata(_,Xp,_),
-    not((vettura_prenotata(_,Xp2,_), Xp2>Xp)),
-    vettura_prenotata(Id,Xp,Xt),
-    not((vettura_prenotata(_,Xp,Xt2), Xt2<Xt)),
+    max_member(B, vettura_prenotata(_,B,_)),
+    write(B),
+
+    vettura_prenotata(A, B, C),
 
     format('Macchina successiva: ~d', Id), nl,
     retract(strada_libera(true)),
